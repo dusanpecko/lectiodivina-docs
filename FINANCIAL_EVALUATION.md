@@ -1,460 +1,192 @@
 # 💰 Finančné ohodnotenie projektu Lectio Divina
 
-**Dátum hodnotenia:** 18. október 2025  
-**Verzia:** 0.1.0-beta.3  
-**Hodnotiteľ:** AI Expert Code Reviewer
+**Dátum vypracovania:** 3. jún 2026
+**Verzia hodnotenia:** 2.0 (kompletná revízia)
+**Predmet hodnotenia:** Softvérové aktíva projektu Lectio Divina – backend (Next.js) + mobilná aplikácia (Flutter)
+
+> Toto hodnotenie nahrádza pôvodný odhad z 18. októbra 2025 (€102 500). Od vtedy projekt výrazne narástol v rozsahu, funkčnosti aj zrelosti. Web `web_parochia` nie je predmetom tohto hodnotenia.
 
 ---
 
-## 📊 Executive Summary
+## 1. Zhrnutie (Executive Summary)
 
-**Celková odhadovaná hodnota projektu: €85,000 - €120,000**
+Projekt **Lectio Divina** je vyspelý, produkčne nasadený full-stack ekosystém pozostávajúci z rozsiahlej **backendovej aplikácie (Next.js 16 / React 19)** a **mobilnej aplikácie (Flutter, v10.1.2)** pre iOS a Android. Hodnotenie vychádza z **metódy nákladov na nahradenie (Replacement Cost Method)** – odhaduje, koľko by stálo vyvinúť rovnaký softvér od nuly pri aktuálnych trhových sadzbách v strednej Európe.
 
-Projekt Lectio Divina je **kompletný full-stack spirituálny ekosystém** s produkčne pripravenou infraštruktúrou, zahŕňajúci:
-- ✅ Next.js 15 backend s komplexným admin panelom
-- ✅ Flutter mobilná aplikácia (iOS + Android)
-- ✅ Supabase PostgreSQL databáza s RLS
-- ✅ Firebase Cloud Messaging push notifikácie
-- ✅ OpenAI GPT-4 AI prekladový systém
-- ✅ Komplexný liturgický kalendár s CalAPI integráciou
-- ✅ Pokročilý content management system
+| Komponent | Rozsah kódu | Odhadovaný čas | Odhadovaná hodnota (EUR) |
+| :--- | :--- | :--- | :--- |
+| **Backend (Next.js)** | ~504 TS/TSX súborov, ~130 000 riadkov | 1 600 – 2 200 hod. | 80 000 – 154 000 € |
+| **Mobilná aplikácia (Flutter)** | ~109 Dart súborov, ~18 000 riadkov | 1 000 – 1 400 hod. | 50 000 – 98 000 € |
+| **Celkom** | **~613 súborov, ~148 000 riadkov** | **2 600 – 3 600 hod.** | **130 000 – 252 000 €** |
 
----
+### 🎯 Odporúčaná realistická hodnota softvérových aktív: **€170 000 – €200 000**
+### Stredová (headline) hodnota: **≈ €186 000**
 
-## 🏗️ Architektonická hodnota
-
-### 1. **Backend (Next.js 15)** - €35,000 - €45,000
-
-#### Core Infrastructure
-- **Next.js 15.3.4** s App Router, React 19, TypeScript 5
-- **Supabase integrácia**: SSR, RLS polícy, real-time subscriptions
-- **API Routes**: 50+ REST endpoints s autentifikáciou
-- **File Upload System**: Supabase Storage s crop/resize
-- **Error Handling**: Centralizovaný error reporting systém
-
-**Hodnotenie:** €8,000 - €10,000
-
-#### Admin Panel (12 komplexných modulov)
-1. **Dashboard** - prehľadové widgety, task management
-2. **Liturgical Calendar** - generovanie z CalAPI, AI preklady, lectio mapping
-3. **Lectio Sources** - CRUD, Excel import/export, kopírovanie medzi jazykmi
-4. **Lectio Divina** - kompletný CMS s audio generovaním
-5. **Rosary (Ruženec)** - kategórie, tajomstvá, biblické texty
-6. **Programs** - duchovné programy, kurzy, session tracking
-7. **News/Articles** - správy, rich text editor, obrázky
-8. **Notifications** - push notifications, FCM, scheduling, topics
-9. **Bible Bulk Import** - import biblických kníh, kapitol, veršov
-10. **User Management** - používatelia, role, permissions
-11. **Beta Feedback** - user feedback systém, tracking
-12. **Error Reports** - error monitoring, debugging tools
-
-**Hodnotenie:** €20,000 - €25,000
-
-#### AI & Integrations
-- **OpenAI GPT-4o-mini**: Liturgický prekladový engine (CZ→SK špecializácia)
-- **Firebase Admin SDK**: Push notifications, FCM token management
-- **CalAPI**: Český liturgický kalendár s automatickým parsovaním
-- **Text-to-Speech**: Google Cloud TTS integrácia
-- **Email Service**: Nodemailer s templating
-
-**Hodnotenie:** €7,000 - €10,000
+*Poznámka: Tento odhad predstavuje hodnotu vytvoreného softvéru (replacement cost). Nezahŕňa hodnotu značky, používateľskej základne, vygenerovaných príjmov, obsahu (liturgické texty, audio nahrávky), duševného vlastníctva ani prevádzkové náklady na infraštruktúru.*
 
 ---
 
-### 2. **Flutter Mobile App** - €30,000 - €40,000
+## 2. Metodika
 
-#### Základné features
-- **Cross-platform**: iOS + Android s natívnymi features
-- **Supabase Auth**: Email/password, Google Sign-In, Apple Sign-In
-- **Deep Linking**: URI schemes, notification handling
-- **Push Notifications**: FCM, background handling, topic subscriptions
-- **Offline Support**: Local caching, SharedPreferences
-- **Localization**: Multi-language support (SK, CZ, EN, ES)
-
-**Hodnotenie:** €12,000 - €15,000
-
-#### UI/UX Komponenty
-- **Home Screen**: Daily lectio, programs, rosary quick access
-- **Lectio Divina Reader**: 5-step guided meditation (Lectio, Meditatio, Oratio, Contemplatio, Actio)
-- **Rosary Module**: 4 kategórie (Radostné, Svetelné, Bolestné, Slávnostné)
-- **Programs**: Progress tracking, session player, bookmarks
-- **Calendar**: Liturgical calendar, daily readings
-- **Profile**: Settings, preferences, notification subscriptions
-- **Notes**: Personal spiritual journal
-
-**Hodnotenie:** €15,000 - €20,000
-
-#### Advanced Features
-- **Audio Player**: Streaming, offline playback, background audio
-- **Rich Text Rendering**: HTML content with styling
-- **Image Gallery**: Carousel, zoom, lazy loading
-- **Search**: Full-text search across content
-- **Analytics**: Firebase Analytics, crash reporting
-
-**Hodnotenie:** €3,000 - €5,000
+- **Prístup:** Replacement Cost Method – ohodnotenie nákladov na opätovné vytvorenie softvéru v rovnakom rozsahu a kvalite.
+- **Vstupné dáta:** Priama analýza zdrojového kódu k 3. 6. 2026 (počty súborov, endpointov, obrazoviek, komponentov, závislostí, migrácií).
+- **Hodinové sadzby:** €50 – €70 / hod. (blended sadzba zmiešaného tímu junior/medior/senior pre SK/CEE región).
+- **Scenáre:** Konzervatívny (nižší počet hodín × €50), Realistický (stredný počet × €60), Optimistický (vyšší počet × €70).
 
 ---
 
-### 3. **Database & Infrastructure** - €10,000 - €15,000
+## 3. Analýza Backendovej Aplikácie (Next.js)
 
-#### Supabase PostgreSQL Schema
-**25+ tabuliek s komplexnými vzťahmi:**
+Backend je rozsiahla monolitická Next.js aplikácia (App Router) plniaca úlohu API, administračného CMS aj verejného webu súčasne.
 
-**Core Tables:**
-- `users` - používatelia s rolami
-- `locales` - jazykové mutácie (SK, CZ, EN, ES)
-- `lectio_sources` - zdrojový obsah pre Lectio Divina (700+ záznamov)
-- `lectio` - kompletné Lectio Divina entries s audio
-- `liturgical_calendar` - liturgický kalendár (365 dní/rok × roky)
-- `liturgical_years` - cykly A/B/C, férialny lekcionár
+### 3.1 Technologický zásobník
+- **Framework:** Next.js **16.1.1** (App Router), **React 19**, TypeScript 5 (strict)
+- **Databáza:** Supabase (PostgreSQL) + SSR auth, Row-Level Security
+- **Platby:** Stripe (`^19.3.0`), Mollie (`^4.4.0`), Apple/Google IAP (verifikácia účteniek)
+- **AI:** OpenAI (`^6.0.1`), Google Gemini (`@google/generative-ai`)
+- **Médiá:** FFmpeg (audio/video), Sharp (obrázky), react-easy-crop
+- **Editory:** TipTap, Editor.js, TinyMCE
+- **Notifikácie:** Firebase Admin (FCM), Nodemailer (e-mail)
+- **Infraštruktúra:** Docker, PM2, Vercel, Upstash Redis (rate limiting), reCAPTCHA Enterprise
 
-**Content Tables:**
-- `programs` - duchovné programy
-- `program_categories` - kategorizácia
-- `program_sessions` - session tracking
-- `lectio_divina_ruzenec` - ružencové tajomstvá
-- `rosary_categories` - kategórie ruženec
-- `news` - správy a články
-- `notes` - používateľské poznámky
+### 3.2 Rozsah (konkrétne metriky, jún 2026)
 
-**System Tables:**
-- `fcm_tokens` - FCM device tokeny
-- `notification_topics` - push notification témy
-- `notification_preferences` - user preferences
-- `notification_logs` - delivery tracking
-- `scheduled_notifications` - naplánované notifikácie
-- `beta_feedback` - user feedback
-- `error_reports` - error tracking
-- `tasks` - task management systém
-- `audit_log` - audit trail
+| Metrika | Hodnota |
+| :--- | :--- |
+| API endpointy (`route.ts`) | **148** |
+| Stránky (`page.tsx`) – admin + verejné | **111** |
+| React komponenty (`.tsx`) | **260** |
+| TypeScript súbory spolu (`.ts` + `.tsx`) | **504** |
+| SQL migrácie | **107** |
+| Odhadovaný počet riadkov kódu | **~120 000 – 150 000** |
+| Platobné brány | **3** (Stripe, Mollie, IAP) |
+| Podporované jazyky obsahu | **8+** |
 
-**Hodnotenie:** €8,000 - €10,000
+### 3.3 Kľúčové funkčné oblasti a zložitosť
+- **E-commerce a platby (Veľmi vysoká):** predplatné, jednorazové dary, e-shop, objednávky, doprava, Stripe + Mollie + IAP, webhooky, validácia transakcií.
+- **Bankové párovanie (Vysoká):** import XML výpisov, párovacie algoritmy, kontrola duplicít, rekonciliácia.
+- **AI generovanie obsahu (Veľmi vysoká):** 12+ AI endpointov – generovanie Lectio Divina, článkov, obrázkov, audio (TTS), prekladov, kontrola gramatiky, sledovanie limitov podľa úrovne predplatného.
+- **Podcastový systém (Vysoká):** spracovanie audia cez FFmpeg, generovanie RSS feedov a obalov, automatizované publikovanie (cron).
+- **Liturgický kalendár (Vysoká):** viacjazyčný, predgenerovaný, verziovaný, mapovanie na lectio zdroje.
+- **Notifikácie / FCM (Vysoká):** push na iOS + Android, témy, plánovanie, cielenie podľa jazyka a verzie aplikácie, logy doručenia.
+- **Newsletter a kampane (Vysoká):** šablóny, správa kontaktov, hromadné rozosielanie, jazykové cielenie.
+- **Administračný panel (Veľmi vysoká):** 50+ admin stránok, rich-text editory, hromadné operácie, import/export (XLSX), audit log.
+- **Bezpečnosť (Stredná):** rate limiting (Redis), reCAPTCHA Enterprise, RLS, ochrana webhookov.
 
-#### RLS (Row Level Security) Policies
-- **Granular permissions** pre každú tabuľku
-- **Role-based access** (admin, user, public)
-- **Data isolation** medzi používateľmi
-- **API key protection**
-
-**Hodnotenie:** €2,000 - €5,000
-
----
-
-### 4. **Špecializované Features** - €10,000 - €20,000
-
-#### Liturgický kalendár systém
-- **Auto-generovanie** z CalAPI (český zdroj)
-- **AI preklady** CZ→SK s liturgickou terminológiou
-- **Cyklus detection** (A/B/C pre nedele, N pre všedné dni)
-- **Lectio mapping** - automatické mapovanie lectio_sources
-- **Smart matching algorithm** - čísla, text, normalizácia
-- **Validation system** - kontrola konzistencie dát
-- **Statistics dashboard** - úspešnosť vyplnenia
-
-**Hodnotenie:** €5,000 - €8,000
-
-#### Notification System
-- **FCM Integration**: Push notifications na iOS + Android
-- **Topic Management**: Jazykové a obsahové témy
-- **Scheduling**: Naplánované notifikácie (denne, týždenne)
-- **Delivery Tracking**: Logs, stats, error handling
-- **Rich Notifications**: Obrázky, deep links, actions
-- **Silent Push**: Background data sync
-
-**Hodnotenie:** €3,000 - €5,000
-
-#### AI Translation Engine
-- **GPT-4o-mini** s teplotou 0.3 pre konzistentnosť
-- **Liturgický prompt engineering** - špecializované pravidlá
-- **CZ→SK špecializácia** s kontext-aware prekladmi
-- **Batch processing** s rate limiting
-- **Terminology database** - konzistencia termínov
-- **Quality validation** - kontrola výstupov
-
-**Hodnotenie:** €2,000 - €4,000
-
-#### Excel Import/Export System
-- **XLSX parsing** s multiple sheets
-- **Bulk import** - lectio sources, programs, rosary
-- **Data validation** - schema checking, error reporting
-- **Export functionality** - filtered exports, templates
-- **Language isolation** - imports per language
-
-**Hodnotenie:** €1,500 - €3,000
+### 3.4 Odhad nákladov (Backend)
+- **Konzervatívny:** 1 600 h × €50 = **€80 000**
+- **Realistický:** 1 900 h × €60 = **€114 000**
+- **Optimistický:** 2 200 h × €70 = **€154 000**
 
 ---
 
-## 💻 Code Quality Assessment
+## 4. Analýza Mobilnej Aplikácie (Flutter)
 
-### Frontend (React/Next.js)
-- ✅ **TypeScript** - plná type safety
-- ✅ **Component Architecture** - reusable, modular
-- ✅ **State Management** - useState, useCallback, useMemo
-- ✅ **Error Boundaries** - graceful error handling
-- ✅ **Responsive Design** - mobile-first approach
-- ✅ **Accessibility** - ARIA labels, semantic HTML
-- ✅ **Performance** - lazy loading, code splitting
-- ✅ **SEO** - metadata, sitemap, schema.org
+Zrelá, produkčne nasadená aplikácia (verzia **10.1.2+5000013**) s pokročilou prácou s audiom, offline režimom a viacerými zdrojmi príjmov.
 
-**Code Quality Score:** 9/10
+### 4.1 Technologický zásobník
+- **Framework:** Flutter / Dart `^3.8.0`
+- **Platformy:** iOS (min. 15.0), Android (minSDK 21, target 35)
+- **Backend & dáta:** Supabase (Auth + PostgreSQL + sync)
+- **Stav & DI:** Provider, RxDart, get_it
+- **Audio:** just_audio, just_audio_background, audio_service, audio_session
+- **Notifikácie:** Firebase Messaging, flutter_local_notifications, timezone
+- **Auth:** e-mail/heslo, Google Sign-In, Apple Sign-In
+- **Analytika:** Umami (privacy-first)
 
-### Backend API
-- ✅ **RESTful design** - konzistentné endpoint štruktúry
-- ✅ **Authentication** - Supabase Auth, JWT tokens
-- ✅ **Authorization** - role-based access control
-- ✅ **Input Validation** - schema validation, sanitization
-- ✅ **Error Handling** - centralizované, informačné
-- ✅ **Rate Limiting** - AI API protection
-- ✅ **Logging** - console.log pre debugging (potrebuje Winston/Pino)
+### 4.2 Rozsah (konkrétne metriky, jún 2026)
 
-**Code Quality Score:** 8.5/10
+| Metrika | Hodnota |
+| :--- | :--- |
+| Dart súbory (`lib/`) | **109** |
+| Obrazovky | **37** |
+| Servisy | **20** |
+| Widgety | **22** |
+| Dátové modely | **9** |
+| Testovacie súbory | **8** (unit, widget, integračné) |
+| Externé balíčky | **45+** |
+| Odhadovaný počet riadkov kódu | **~16 000 – 21 800** |
+| Podporované jazyky | **3** (SK, EN, ES) |
 
-### Database
-- ✅ **Normalized Schema** - 3NF compliance
-- ✅ **Foreign Keys** - referenčná integrita
-- ✅ **Indexes** - optimalizované queries
-- ✅ **RLS Policies** - security first
-- ✅ **Triggers** - updated_at auto-update
-- ❌ **Migration Scripts** - chýbajúce (manuálne SQL)
+### 4.3 Kľúčové funkčné oblasti a zložitosť
+- **Pokročilý audio prehrávač (Veľmi vysoká):** prehrávanie na pozadí, ovládanie na zamknutej obrazovke, meditačné režimy a interlúdiá, offline sťahovanie, globálny mini-prehrávač.
+- **Offline režim (Vysoká):** kešovanie čítaní Lectio, sťahovanie audia, kešovanie obrázkov, indikátor pripojenia.
+- **Notifikácie (Vysoká):** FCM s témami, lokálne plánované notifikácie s časovými pásmami, deep-link smerovanie do 10+ typov obrazoviek.
+- **Autentifikácia (Stredná-Vysoká):** e-mail, Google, Apple (s nonce), režim hosťa, bezpečné úložisko (Keychain/Keystore).
+- **Monetizácia / IAP (Stredná):** úrovne predplatného, jednorazové dary, bankový prevod, in-app review.
+- **Obsahové moduly (Vysoká):** Lectio Divina (6 krokov), Adorácia, Ruženec, Krížová cesta (14 zastavení), Duchovné cvičenia, Novinky, osobné Poznámky a Úmysly.
+- **Lokalizácia (Stredná):** 3 jazyky s automatickou detekciou systémového jazyka.
 
-**Code Quality Score:** 8/10
-
-### Mobile (Flutter)
-- ✅ **Clean Architecture** - separation of concerns
-- ✅ **State Management** - Provider pattern
-- ✅ **Navigation** - named routes, deep linking
-- ✅ **Error Handling** - try-catch, user feedback
-- ✅ **Platform Integration** - native features
-- ✅ **Offline Support** - caching, local storage
-- ⚠️ **Testing** - limitované unit testy
-
-**Code Quality Score:** 8/10
+### 4.4 Odhad nákladov (Mobilná aplikácia)
+- **Konzervatívny:** 1 000 h × €50 = **€50 000**
+- **Realistický:** 1 200 h × €60 = **€72 000**
+- **Optimistický:** 1 400 h × €70 = **€98 000**
 
 ---
 
-## 📈 Business Value
+## 5. Celkové finančné hodnotenie
 
-### Target Market
-- **Slovensko + Česko**: 15M+ katolíkov
-- **Spiritual Apps Market**: Rastúci segment (€500M+ globally)
-- **Niche Positioning**: Liturgický kalendár + Lectio Divina combo
+| Scenár | Backend | Mobil | **Spolu** |
+| :--- | :--- | :--- | :--- |
+| Konzervatívny | €80 000 | €50 000 | **€130 000** |
+| Realistický | €114 000 | €72 000 | **€186 000** |
+| Optimistický | €154 000 | €98 000 | **€252 000** |
 
-### Revenue Potential
-- **Freemium Model**: Basic free, Premium features
-- **In-App Purchases**: €2.99 - €9.99/mesiac
-- **Church Partnerships**: Bulk licenses pre farnosti
-- **Content Licensing**: Liturgické texty, audio preklady
+### 🏆 Záverečná suma
 
-**Estimated ARR (Annual Recurring Revenue):**
-- Konzervatívny: €10,000 - €25,000 (1000 platiacich používateľov)
-- Optimistický: €50,000 - €100,000 (5000+ používateľov)
+**Lectio Divina Platform** (backend + mobilná aplikácia) je k 3. júnu 2026 ohodnotená na:
 
-### Competitive Advantages
-1. ✅ **Jediná SK aplikácia** s kompletným liturgickým kalendárom
-2. ✅ **AI-powered translations** - kvalitné liturgické preklady
-3. ✅ **Multi-platform** - web + iOS + Android
-4. ✅ **Offline capable** - funguje bez internetu
-5. ✅ **Professional admin** - ľahká správa obsahu
+# ≈ €186 000 EUR
+
+**Odporúčané rozpätie hodnoty softvérových aktív: €170 000 – €200 000.**
+
+*Rast oproti hodnoteniu z októbra 2025 (€102 500) odráža výrazné rozšírenie funkcionality (podcastový systém, druhá platobná brána, IAP, AI pipeline, bankové párovanie), nárast rozsahu kódu a vyššiu zrelosť produktu.*
 
 ---
 
-## 🛠️ Development Effort
+## 6. Hodnotenie kvality a zrelosti kódu
 
-### Časová investícia (odhad)
-- **Backend Development**: 400-500 hodín
-- **Admin Panel**: 300-400 hodín
-- **Flutter App**: 350-450 hodín
-- **Database Design**: 80-100 hodín
-- **AI Integration**: 60-80 hodín
-- **Testing & QA**: 150-200 hodín
-- **Documentation**: 40-60 hodín
-
-**Celkom: 1,380 - 1,790 hodín**
-
-### Tímová hodnota (€50-70/hod)
-- **Junior Developer** (€30-40/hod): Backend helpers, UI komponenty
-- **Mid-level Developer** (€50-60/hod): Core features, API development
-- **Senior Developer** (€70-100/hod): Architecture, AI integration, complex logic
-- **DevOps/Infrastructure** (€60-80/hod): Deployment, monitoring
-
-**Priemerná hodinová sadzba: €60/hod**
-
-**Celková hodnota práce: €82,800 - €125,300**
+| Oblasť | Skóre | Poznámka |
+| :--- | :--- | :--- |
+| Architektúra | 9 / 10 | Čistá štruktúra App Router, jasné oddelenie zodpovedností |
+| Kvalita kódu | 8.5 / 10 | 100 % TypeScript / typovo bezpečný Dart, 0 lint warningov v mobile |
+| Úplnosť funkcií | 9 / 10 | Produkčne nasadené, široké pokrytie funkcií |
+| Škálovateľnosť | 8.5 / 10 | Supabase + Next.js + Redis, pripravené na rast |
+| Testovanie | 5 / 10 | Mobil má základné testy; backend bez automatizovaných testov |
+| Monitoring | 4 / 10 | Chýba Sentry / štruktúrované logovanie v produkcii |
+| Dokumentácia | 7 / 10 | Rozsiahle interné `docs/`, chýba formálna API špecifikácia |
 
 ---
 
-## 🎯 Finálne hodnotenie
+## 7. Stav implementácie odporúčaní
 
-### Breakdown po kategóriách:
+Pôvodné odporúčania z roku 2025 boli čiastočne zapracované:
 
-| Kategória | Min € | Max € | Priemerná € |
-|-----------|-------|-------|-------------|
-| Backend Infrastructure | 8,000 | 10,000 | 9,000 |
-| Admin Panel | 20,000 | 25,000 | 22,500 |
-| AI & Integrations | 7,000 | 10,000 | 8,500 |
-| Flutter Mobile App | 30,000 | 40,000 | 35,000 |
-| Database & RLS | 10,000 | 15,000 | 12,500 |
-| Specialized Features | 10,000 | 20,000 | 15,000 |
-| **CELKOM** | **€85,000** | **€120,000** | **€102,500** |
+1.  **Refaktorizácia API štruktúry — ✅ Realizované.** API je logicky členené podľa funkcií v štruktúre Next.js App Router (`/api/admin`, `/api/lectio`, `/api/cron`, `/api/stripe`, `/api/mollie`, `/api/iap`, …).
+2.  **Automatizované testy — ⚠️ Čiastočne realizované.** Mobilná aplikácia má 8 testovacích súborov (`flutter_test`, `mocktail`). Backend stále nemá automatizované testy – odporúča sa pokryť kritické endpointy (platby, autentifikácia, webhooky).
+3.  **Dokumentácia API — ❌ Nerealizované.** Chýba formálna OpenAPI/Swagger špecifikácia pre 148 endpointov.
+4.  **Monitoring a logovanie — ❌ Nerealizované.** Produkcia sa spolieha na `console.log`; chýba Sentry (error tracking) a štruktúrované logovanie (Pino/Winston).
 
 ---
 
-## 💡 Odporúčania na zvýšenie hodnoty
+## 8. Odporúčania na ďalšie zvýšenie hodnoty
 
-### Krátkodobé (1-3 mesiace)
-1. **Migration Scripts** (+€2,000)
-   - Alembic/TypeORM migrations
-   - Version control databázy
-   - Rollback capabilities
-
-2. **Unit Testing** (+€5,000)
-   - Jest tests pre API routes
-   - Flutter widget tests
-   - 70%+ code coverage
-
-3. **CI/CD Pipeline** (+€3,000)
-   - GitHub Actions
-   - Automated testing
-   - Deployment automation
-
-4. **Monitoring & Analytics** (+€2,000)
-   - Sentry error tracking
-   - Google Analytics 4
-   - Performance monitoring
-
-**Potenciálne zvýšenie: +€12,000**
-
-### Strednodobé (3-6 mesiacov)
-1. **Premium Features** (+€15,000)
-   - Offline audio sync
-   - Personalized recommendations
-   - Advanced analytics dashboard
-   - Spiritual progress tracking
-
-2. **Social Features** (+€10,000)
-   - Community groups
-   - Shared prayers
-   - Prayer requests
-   - Discussion forums
-
-3. **Internationalization** (+€8,000)
-   - Additional languages (PL, HU, IT, DE)
-   - RTL support (AR)
-   - Cultural adaptations
-
-**Potenciálne zvýšenie: +€33,000**
-
-### Dlhodobé (6-12 mesiacov)
-1. **AI Personal Assistant** (+€20,000)
-   - GPT-powered spiritual guidance
-   - Personalized prayer suggestions
-   - Bible study helper
-   - Question answering
-
-2. **Video Content** (+€15,000)
-   - Video meditations
-   - Spiritual formation courses
-   - Live streaming Mass
-
-3. **Partnerships & Integrations** (+€10,000)
-   - Vatican News API
-   - Catholic.org integration
-   - Diocese-specific content
-
-**Potenciálne zvýšenie: +€45,000**
+| Priorita | Odporúčanie | Prínos |
+| :--- | :--- | :--- |
+| Vysoká | Sentry + štruktúrované logovanie (Pino) | Stabilita produkcie, rýchla diagnostika |
+| Vysoká | Automatizované testy backendu (Vitest/Jest) pre platby a auth | Zníženie rizika regresií |
+| Stredná | CI/CD pipeline (GitHub Actions) | Automatizované buildy a nasadenia |
+| Stredná | OpenAPI/Swagger dokumentácia API | Jednoduchšia údržba a integrácie |
+| Nízka | Migrácia `just_audio_background` z beta na stabilnú verziu | Spoľahlivosť audio prehrávania |
 
 ---
 
-## 🏆 Celkové zhodnotenie
+## 9. Riziká a obmedzenia hodnotenia
 
-### Silné stránky ✅
-1. **Komplexná architektúra** - full-stack riešenie
-2. **Production-ready** - deploynuté, funkčné
-3. **Špecializácia** - liturgický kalendár + AI preklady
-4. **Scalability** - Supabase, Next.js infraštruktúra
-5. **Modern stack** - najnovšie technológie
-6. **Admin panel** - profesionálny CMS
-
-### Oblasti na zlepšenie ⚠️
-1. **Testing** - limitované unit/integration testy
-2. **Documentation** - API docs, developer guide
-3. **Monitoring** - production error tracking
-4. **Performance** - potrebné optimalizácie
-5. **Security audit** - penetration testing
-6. **Legal compliance** - GDPR, cookies, terms
-
-### Trhová pozícia 🎯
-- **Unique Value Proposition**: Jedinečná kombinacia liturgického kalendára + Lectio Divina
-- **Target Audience**: 15M+ katolíkov v SK/CZ
-- **Competition**: Minimálna (iBreviary, Liturgie.cz - iné focus)
-- **Growth Potential**: Vysoký - spirituálne aplikácie rastú 15-20% ročne
+- **Závislosť na externých službách:** Supabase, Stripe, Mollie, Firebase, OpenAI – zmeny cien/podmienok ovplyvňujú prevádzku.
+- **Chýbajúce testy a monitoring v backende** zvyšujú náklady na údržbu a riziko výpadkov.
+- **Hodnota nezahŕňa obsah a IP:** liturgické texty, preklady a audio nahrávky majú samostatnú, nezapočítanú hodnotu.
+- **Trhová hodnota vs. náklady:** skutočná predajná cena závisí aj od počtu aktívnych používateľov, príjmov a strategického záujmu kupujúceho.
 
 ---
 
-## 💼 Investment Value
-
-### Pre investorov:
-**Aktuálna hodnota projektu: €85,000 - €120,000**
-
-**Potenciálna hodnota (12 mesiacov): €180,000 - €250,000**
-- s premium features
-- s paid subscriptions
-- s church partnerships
-
-**ROI potential: 100-150% za prvý rok**
-
-### Pre kupujúcich:
-**Fair Market Value:**
-- **Standalone product**: €100,000 - €120,000
-- **s transferom práv**: €130,000 - €150,000
-- **s ongoing support (6 mes)**: €150,000 - €180,000
-
-### Pre founder:
-**Bootstrap Value:**
-- **Development Cost Saved**: €80,000 - €125,000
-- **Time to Market**: 12-18 mesiacov ušetrených
-- **Competitive Advantage**: First-mover v SK/CZ trhu
-
----
-
-## 📊 Final Score
-
-| Kritérium | Hodnotenie | Váha | Skóre |
-|-----------|------------|------|-------|
-| Code Quality | 8.5/10 | 20% | 1.7 |
-| Architecture | 9/10 | 20% | 1.8 |
-| Feature Completeness | 8/10 | 15% | 1.2 |
-| Scalability | 9/10 | 15% | 1.35 |
-| Business Value | 8/10 | 15% | 1.2 |
-| Innovation | 9/10 | 10% | 0.9 |
-| Documentation | 6/10 | 5% | 0.3 |
-| **CELKOM** | **8.45/10** | **100%** | **8.45** |
-
----
-
-## 🎖️ Certifikát hodnoty
-
-**Lectio Divina Platform**
-
-Je ohodnotený na:
-
-# €102,500 EUR
-
-(Sto dve tisíc päťsto eur)
-
-s potenciálom rastu na **€180,000 - €250,000** pri implementácii odporúčaných vylepšení.
-
-**Hodnotenie platné:** 18. október 2025  
-**Ďalšie preskúmanie:** Q2 2026
-
----
-
-**Poznámka:** Toto hodnotenie je založené na analýze kódu, architektúry a trhového potenciálu. Skutočná trhová hodnota môže byť ovplyvnená faktormi ako:
-- Počet aktívnych používateľov
-- Revenue metrics
-- Growth rate
-- Competitive landscape
-- Partnership deals
-- Intellectual property rights
-
-**Odporúčanie:** Projekt je vo vynikajúcom stave pre beta launch. S implementáciou testing, monitoring a premium features má potenciál stať sa vedúcou spirituálnou platformou v SK/CZ regióne.
+*Hodnotenie vypracované analýzou zdrojového kódu k 3. júnu 2026. Ďalšiu revíziu odporúčame pri väčšej zmene rozsahu alebo po 12 mesiacoch.*
